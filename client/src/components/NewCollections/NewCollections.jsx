@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import "./NewCollections.css"
 import Item from '../item/Item'
 
@@ -8,7 +8,7 @@ export default function NewCollections() {
   const [new_collection, setnew_collection] = useState([]);
 
   useEffect(() => {
-    fetch("https://e-commerce-2-0zxi.onrender.com/newcollection")
+    fetch("http://localhost:5000/newcollection")
     .then((res)=>res.json())
     .then((data)=>setnew_collection(data));
   }, [])

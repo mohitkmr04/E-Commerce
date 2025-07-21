@@ -3,7 +3,7 @@ import "./Item.css"
 import { Link } from 'react-router-dom'
 
 export default function Item(props) {
-  const url="https://e-commerce-2-0zxi.onrender.com"
+  const url="http://localhost:5000"
   return (
     <div className='item'>
       <Link to={`/product/${props.id}`}><img onClick={window.scrollTo(0,0)} src={url+'/images/'+props.image} alt="" /></Link>

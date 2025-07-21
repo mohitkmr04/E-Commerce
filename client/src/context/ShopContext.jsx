@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react'
+import { createContext, useState, useEffect } from 'react'
 
 export const ShopContext = createContext(null);
 
@@ -17,7 +17,7 @@ export default function ShopContextProvider(props) {
     const [all_product, setall_product] = useState([]);
     const [cartItems, setcartItems] = useState(getDefaultCart());
     const [count, setcount] = useState(0);
-    const url="https://e-commerce-2-0zxi.onrender.com"
+    const url="http://localhost:5000"
 
     useEffect(() => {
         let sum = 0;
@@ -32,14 +32,14 @@ export default function ShopContextProvider(props) {
 
 
     useEffect(() => {
-        fetch("https://e-commerce-2-0zxi.onrender.com/allproducts")
+        fetch(`${url}/allproducts`)
             .then((res) => res.json())
             .then((data) => {
                 setall_product(data)
             })
 
         if (localStorage.getItem("auth-token")) {
-            fetch("https://e-commerce-2-0zxi.onrender.com/getcart",{
+            fetch(`${url}/getcart`,{
                 method: "POST",
                 headers: {
                     Accept: "application/form-data",
@@ -61,7 +61,7 @@ export default function ShopContextProvider(props) {
 
         setcartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }))
         if (localStorage.getItem("auth-token")) {
-            fetch("https://e-commerce-2-0zxi.onrender.com/addtocart", {
+            fetch(`${url}/addtocart`, {
                 method: "POST",
                 headers: {
                     Accept: "application/formData",
@@ -78,7 +78,7 @@ export default function ShopContextProvider(props) {
         setcartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }))
 
         if (localStorage.getItem("auth-token")) {
-            fetch("https://e-commerce-2-0zxi.onrender.com/removefromcart", {
+            fetch(`${url}/removefromcart`, {
                 method: "POST",
                 headers: {
                     Accept: "application/formData",

@@ -181,6 +181,8 @@ app.post("/login", async (req, res) => {
 app.post("/addproduct", async (req, res) => {
   let products = await Product.find({});
   let id;
+
+  console.log("ADDDDDD pRODUCTTT")
   if (products.length > 0) {
     let last_product_array = products.slice(-1);
     let last_product = last_product_array[0];
@@ -227,7 +229,7 @@ app.get("/allproducts", async (req, res) => {
 app.get("/newcollection", async (req, res) => {
   let products = await Product.find({});
   let newcollection = products.slice(1).slice(-8);
-  console.log("new collection fetched");
+  console.log("new collection fetched",newcollection);
   res.send(newcollection);
 });
 

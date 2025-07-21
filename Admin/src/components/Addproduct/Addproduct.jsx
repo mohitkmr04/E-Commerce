@@ -40,7 +40,7 @@ export default function Addproduct() {
         if (responseData.success) {
             product.image = responseData.image_url;
             console.log(product);
-            await fetch("http://loalhost:5000/addproduct", {
+            await fetch("http://localhost:5000/addproduct", {
                 method: "POST",
                 headers: {
                     Accept: "application/json",
