@@ -2,13 +2,14 @@ import { useEffect, useState } from 'react'
 import "./NewCollections.css"
 import Item from '../item/Item'
 
+const API_BASE = import.meta.env.VITE_API_URL;
 
 export default function NewCollections() {
 
   const [new_collection, setnew_collection] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/newcollection")
+    fetch(`${API_BASE}/newcollection`)
     .then((res)=>res.json())
     .then((data)=>setnew_collection(data));
   }, [])

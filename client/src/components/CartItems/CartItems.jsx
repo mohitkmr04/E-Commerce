@@ -4,10 +4,12 @@ import remove_icon from "../Assets/cart_cross_icon.png"
 import "./CartItems.css"
 import { loadStripe } from '@stripe/stripe-js';
 
+const API_BASE = import.meta.env.VITE_API_URL;
+
 export default function CartItems() {
 
     // Replace with your local backend URL
-    const BASE_URL = "http://localhost:5000";
+    const BASE_URL = `${API_BASE}`;
 
     const { getTotalcartAmount, all_product, cartItems, removeFromCart } = useContext(ShopContext);
 

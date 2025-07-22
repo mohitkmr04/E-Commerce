@@ -2,6 +2,8 @@ import { createContext, useState, useEffect } from 'react'
 
 export const ShopContext = createContext(null);
 
+const API_BASE = import.meta.env.VITE_API_URL;
+
 const getDefaultCart = () => {
     let cart = {};
     for (let index = 0; index < 300 + 1; index++) {
@@ -17,7 +19,7 @@ export default function ShopContextProvider(props) {
     const [all_product, setall_product] = useState([]);
     const [cartItems, setcartItems] = useState(getDefaultCart());
     const [count, setcount] = useState(0);
-    const url="http://localhost:5000"
+    const url=`${API_BASE}`
 
     useEffect(() => {
         let sum = 0;

@@ -4,9 +4,11 @@ import star_icon from "../Assets/star_icon.png"
 import star_dull_icon from "../Assets/star_dull_icon.png"
 import { ShopContext } from '../../context/ShopContext'
 
+const API_BASE = import.meta.env.VITE_API_URL;
+
 export default function ProductDisplay({ product }) {
   const { addtoCart } = useContext(ShopContext);
-  const url="https://e-commerce-2-0zxi.onrender.com"
+  const url=`${API_BASE}`
 
   return (
     <div className='productdisplay'>

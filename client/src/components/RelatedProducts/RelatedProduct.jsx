@@ -3,13 +3,15 @@ import "./RelatedProduct.css"
 import data_product from "../Assets/data"
 import Item from "../item/Item.jsx"
 
+const API_BASE = import.meta.env.VITE_API_URL;
+
 export default function RelatedProduct({ product }) {
 
   const [relatedproducts, setrelatedproducts] = useState([])
 
   useEffect(() => {
     const category = product.category;
-    fetch("https://e-commerce-2-0zxi.onrender.com/relatedproducts", {
+    fetch(`${API_BASE}/relatedproducts`, {
       method: "POST",
       headers: {
         Accept: "application/json",

@@ -2,8 +2,10 @@ import React from 'react'
 import "./Item.css"
 import { Link } from 'react-router-dom'
 
+const API_BASE = import.meta.env.VITE_API_URL;
+
 export default function Item(props) {
-  const url="http://localhost:5000"
+  const url=`${API_BASE}`
   return (
     <div className='item'>
       <Link to={`/product/${props.id}`}><img onClick={window.scrollTo(0,0)} src={url+'/images/'+props.image} alt="" /></Link>

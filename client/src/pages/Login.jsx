@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import "./CSS/login.css";
 
+const API_BASE = import.meta.env.VITE_API_URL
+
 export default function Login() {
 
   const [state, setstate] = useState("Login");
@@ -27,7 +29,7 @@ export default function Login() {
 
     console.log("login");
     let responsedata;
-    await fetch("http://localhost:5000/login", {
+    await fetch(`${API_BASE}/login`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -60,7 +62,7 @@ export default function Login() {
 
     console.log("signup");
     let responsedata;
-    await fetch("http://localhost:5000/signup", {
+    await fetch(`${API_BASE}/signup`, {
       method: "POST",
       headers: {
         Accept: "application/json",
